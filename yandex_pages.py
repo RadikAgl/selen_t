@@ -5,7 +5,9 @@ from .logger import setup_logger
 
 
 class ImagesPage(BasePage):
-
+    """
+    Страница изображений
+    """
     XPATH_YANDEX_NAVIGATION_IMAGES = (By.XPATH, "//a[@data-id='images']")
     XPATH_SEARCH_FIELD = (By.XPATH, '//input[@class="input__control mini-suggest__input"]')
     XPATH_FIRST_CATEGORY_TEXT = (By.XPATH, '//div[contains(@class, "PopularRequestList-Item_pos_0")]//div['
@@ -48,7 +50,9 @@ class ImagesPage(BasePage):
 
 
 class YandexSearch(BasePage):
-
+    """
+    Главная страница Яндекса
+    """
     LOCATOR_YANDEX_SEARCH_FIELD = (By.ID, "text")
     LOCATOR_YANDEX_SEARCH_SUGGESTIONS = (By.CLASS_NAME, "mini-suggest__popup-content")
     LOCATOR_YANDEX_SEARCH_BUTTON = (By.CLASS_NAME, "search2__button")

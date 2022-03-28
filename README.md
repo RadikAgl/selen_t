@@ -13,3 +13,11 @@ git clone https://github.com/RadikAgl/selen_t.git
 ```bash
 pip install -r requirements.txt
 ```
+
+## Запуск тестирования
+
+
+Для запуска тестирования введите команду в терминале
+```bash
+pytest
+```

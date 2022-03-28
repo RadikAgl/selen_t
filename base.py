@@ -3,7 +3,9 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class BasePage:
-
+    """
+    Базовый класс для создания классов веб-страниц
+    """
     def __init__(self, driver):
         self.driver = driver
         self.base_url = "https://yandex.ru/"

@@ -11,10 +11,16 @@ IMAGES_URL = 'https://yandex.ru/images/'
 
 
 def is_required_url_in_links(links: List[str]) -> bool:
+    """
+    Проверяет наличие требуемой url адреса в первых n ссылках из списка, возвращает булево значение
+    """
     return all([URL in link for link in links[:REQUIRED_LINKS_NUMBER]])
 
 
-def test_yandex_search(browser):
+def test_yandex_search(browser: webdriver):
+    """
+    Тестирование поисковой страницы яндекса
+    """
     yandex_search = YandexSearch(browser)
     try:
         yandex_search.go_to_site()
@@ -36,6 +42,9 @@ def test_yandex_search(browser):
 
 
 def test_images(browser: webdriver):
+    """
+    Тестирование страницы с картинками
+    """
     yandex_images = ImagesPage(browser)
     try:
         yandex_images.go_to_site()
@@ -58,8 +67,10 @@ def test_images(browser: webdriver):
         first_image.click()
         time.sleep(1)
 
-        image_src = yandex_images.get_current_image().get_attribute('src')
+        image = yandex_images.get_current_image()
+        assert image, 'Картинка не открылась'
 
+        image_src = image.get_attribute('src')
         yandex_images.press_button_next()
         time.sleep(1)
 
